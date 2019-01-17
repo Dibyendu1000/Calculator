@@ -38,11 +38,15 @@ def delete():
     equation.set(exp)
   
 
-root = tkinter.Tk() 
+root = tkinter.Tk()
+
+root.iconbitmap('favicon.ico')
   
 root.title("Calculator") 
 
-root.geometry("325x260") 
+root.geometry("325x260")
+
+
   
      
 equation = tkinter.StringVar() 
