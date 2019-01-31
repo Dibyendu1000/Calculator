@@ -37,6 +37,8 @@ def equal_press():
             result=first/second
         elif(but==5):
             result=first**second
+        elif(but==6):
+            result=first**(1/second)
         exp=result
         equation.set(exp)
 
@@ -116,6 +118,25 @@ def fact_num():
         msg1=messagebox.showerror("Invalid Input","Input for factorial should be a non-negative Integer!")
         clr()
     flag=0
+def root_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    exp=""
+    equation.set(exp)
+    but=6
+    flag=0
+def sq_root_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    result=first**0.5
+    exp=result
+    equation.set(exp)
+    flag=0
+
 
 root = tkinter.Tk()
 
@@ -187,7 +208,7 @@ divide = tkinter.Button(root, text=' ÷ ', command=div_num, height=1, width=4)
 divide.place(x=190, y=50)
 divide.configure(font=("Calibri",17))
 
-power = tkinter.Button(root, text=" ^ ", command=pow_num, height=1, width=4)
+power = tkinter.Button(root, text=" ^y ", command=pow_num, height=1, width=4)
 power.place(x=250, y=50)
 power.configure(font=("Calibri",17))
 
@@ -214,5 +235,13 @@ delte.configure(font=("Calibri",17))
 facto = tkinter.Button(root, text='n!', command=fact_num, height=1, width=4) 
 facto.place(x=10, y=250)
 facto.configure(font=("Calibri",17))
+
+rooter = tkinter.Button(root, text='y√', command=root_num, height=1, width=4) 
+rooter.place(x=70, y=250)
+rooter.configure(font=("Calibri",17))
+
+sq_rooter = tkinter.Button(root, text='2√', command=sq_root_num, height=1, width=4) 
+sq_rooter.place(x=130, y=250)
+sq_rooter.configure(font=("Calibri",17))
 
 root.mainloop() 
