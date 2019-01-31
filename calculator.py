@@ -107,12 +107,13 @@ def fact_num():
     global first
     global but
     first=float(exp)
+    first=int(first)
     try:
         result=math.factorial(first)
         exp=result
         equation.set(exp)
     except:
-        msg1=messagebox.showerror("Invalid Input","Input for factorial should be a non-negative Number !")
+        msg1=messagebox.showerror("Invalid Input","Input for factorial should be a non-negative Integer!")
         clr()
     flag=0
 
