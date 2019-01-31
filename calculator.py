@@ -3,17 +3,22 @@ import math
 exp = ""
 first=float()
 but=0
+flag=0
 def press(num): 
     global exp
+    global flag
     if(str(num).isdigit()):
         exp = exp +str(num)
     elif(num=='π'):
         exp = exp +str(math.pi)
     elif(num=='.'):
-        if(exp[-1]!='.'):
-            exp = exp +str('.')
-        else:
+        for i in exp:
+            if(i=='.'):
+                flag=1
+        if(flag==1):
             pass
+        else:
+            exp=exp+'.'
     equation.set(exp)
    
 def equal():
