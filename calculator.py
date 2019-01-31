@@ -9,7 +9,6 @@ def press(num):
         exp = exp + str(num)
     elif(num=='π'):
         exp = exp +str(math.pi)
-
     equation.set(exp)
    
 def equal():
@@ -137,11 +136,14 @@ minus.place(x=190, y=150)
 multiply = tkinter.Button(root, text=' * ', command=mul_num, height=2, width=7) 
 multiply.place(x=190, y=200)  
   
-divide = tkinter.Button(root, text=' / ', command=div_num, height=2, width=7) 
-divide.place(x=190, y=50) 
+divide = tkinter.Button(root, text=' / ', command=div_num, height=2, width=7)
+divide.place(x=190, y=50)
+
+power = tkinter.Button(root, text=" ^ ", command=pow_num, height=2, width=7)
+power.place(x=250, y=50)
   
-equal = tkinter.Button(root, text=' = ', command=equal, height=5, width=7) 
-equal.place(x=250, y=52)
+equal = tkinter.Button(root, text=' = ', command=equal, height=2, width=7) 
+equal.place(x=250, y=100)
 
 dot=tkinter.Button(root, text=' . ', command=lambda: press("."), height=2, width=7) 
 dot.place(x=10, y=200)
