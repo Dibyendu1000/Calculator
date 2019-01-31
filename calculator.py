@@ -1,29 +1,36 @@
 import tkinter
 import math
-exp = "" 
+exp = ""
+first=float()
+but=0
 def press(num): 
     global exp
     if(str(num).isdigit()):
         exp = exp + str(num)
     elif(num=='π'):
         exp = exp +str(math.pi)
-    else:
-        if(str(exp[-1]).isdigit()):
-            exp = exp+str(num)
-        else:
-            exp=exp[:-1]+str(num)
+
     equation.set(exp)
    
-def equalpress():
+def equal():
     try: 
   
-        global exp 
-        total = str(eval(exp))   
-        equation.set(total) 
-        exp = "" 
+        global exp
+        second=float(exp)
+        if(but==1):
+            result=first+second
+        elif(but==2):
+            result=first-second
+        elif(but==3):
+            result=first*second
+        elif(but==4):
+            result=first/second
+        elif(but==5):
+            result=first**second
+        exp=result
+        equation.set(exp)
 
     except: 
-  
         equation.set(" error ") 
         exp = "" 
    
@@ -36,7 +43,47 @@ def delete():
     global exp
     exp=exp[:-1]
     equation.set(exp)
-  
+
+def add_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    exp=""
+    equation.set(exp)
+    but=1
+def subs_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    exp=""
+    equation.set(exp)
+    but=2
+def mul_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    exp=""
+    equation.set(exp)
+    but=3
+def div_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    exp=""
+    equation.set(exp)
+    but=4
+def pow_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    exp=""
+    equation.set(exp)
+    but=5 
 
 root = tkinter.Tk()
 
@@ -46,9 +93,6 @@ root.title("Calculator")
 
 root.geometry("325x260")
 
-
-  
-     
 equation = tkinter.StringVar() 
 exp_field = tkinter.Entry(root, textvariable=equation, width=27, font="5") 
 
@@ -84,19 +128,19 @@ button9.place(x=130, y=150)
 button0 = tkinter.Button(root, text=' 0 ', command=lambda: press(0), height=2, width=7) 
 button0.place(x=70, y=200)
   
-plus = tkinter.Button(root, text=' + ', command=lambda: press("+"), height=2, width=7) 
+plus = tkinter.Button(root, text=' + ', command=add_num, height=2, width=7) 
 plus.place(x=190, y=100) 
   
-minus = tkinter.Button(root, text=' - ', command=lambda: press("-"), height=2, width=7) 
+minus = tkinter.Button(root, text=' - ', command=subs_num, height=2, width=7) 
 minus.place(x=190, y=150)  
   
-multiply = tkinter.Button(root, text=' * ', command=lambda: press("*"), height=2, width=7) 
+multiply = tkinter.Button(root, text=' * ', command=mul_num, height=2, width=7) 
 multiply.place(x=190, y=200)  
   
-divide = tkinter.Button(root, text=' / ', command=lambda: press("/"), height=2, width=7) 
+divide = tkinter.Button(root, text=' / ', command=div_num, height=2, width=7) 
 divide.place(x=190, y=50) 
   
-equal = tkinter.Button(root, text=' = ', command=equalpress, height=5, width=7) 
+equal = tkinter.Button(root, text=' = ', command=equal, height=5, width=7) 
 equal.place(x=250, y=52)
 
 dot=tkinter.Button(root, text=' . ', command=lambda: press("."), height=2, width=7) 
