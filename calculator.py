@@ -6,9 +6,14 @@ but=0
 def press(num): 
     global exp
     if(str(num).isdigit()):
-        exp = exp + str(num)
+        exp = exp +str(num)
     elif(num=='π'):
         exp = exp +str(math.pi)
+    elif(num=='.'):
+        if(exp[-1]!='.'):
+            exp = exp +str('.')
+        else:
+            pass
     equation.set(exp)
    
 def equal():
