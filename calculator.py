@@ -22,7 +22,7 @@ def press(num):
             exp=exp+'.'
     equation.set(exp)
    
-def equal():
+def equal_press():
     try: 
   
         global exp
@@ -62,14 +62,19 @@ def add_num():
     exp=""
     equation.set(exp)
     but=1
+    flag=0
 def subs_num():
     global exp
     global first
     global but
+    if(exp==''):
+        exp=0
+        messagebox.showwarning("Negative Number","If you want to enter a negative number press the '-' button\nfollowed by the desired number and then press\nthe '=' button to get the negative number.")
     first=float(exp)
     exp=""
     equation.set(exp)
     but=2
+    flag=0
 def mul_num():
     global exp
     global first
@@ -78,6 +83,7 @@ def mul_num():
     exp=""
     equation.set(exp)
     but=3
+    flag=0
 def div_num():
     global exp
     global first
@@ -86,6 +92,7 @@ def div_num():
     exp=""
     equation.set(exp)
     but=4
+    flag=0
 def pow_num():
     global exp
     global first
@@ -94,6 +101,7 @@ def pow_num():
     exp=""
     equation.set(exp)
     but=5
+    flag=0
 def fact_num():
     global exp
     global first
@@ -104,8 +112,9 @@ def fact_num():
         exp=result
         equation.set(exp)
     except:
-        messagebox.showerror("Invalid Input","Input for factorial should be a non-negative Integer")
-        clr()        
+        msg1=messagebox.showerror("Invalid Input","Input for factorial should be a non-negative Number !")
+        clr()
+    flag=0
 
 root = tkinter.Tk()
 
@@ -181,7 +190,7 @@ power = tkinter.Button(root, text=" ^ ", command=pow_num, height=1, width=4)
 power.place(x=250, y=50)
 power.configure(font=("Calibri",17))
 
-equal = tkinter.Button(root, text=' = ', command=equal, height=1, width=4) 
+equal = tkinter.Button(root, text=' = ', command=equal_press, height=1, width=4) 
 equal.place(x=250, y=100)
 equal.configure(font=("Calibri",17))
 
