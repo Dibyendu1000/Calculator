@@ -39,6 +39,8 @@ def equal_press():
             result=first**second
         elif(but==6):
             result=first**(1/second)
+        elif(but==7):
+            result=math.log(second,first)
         exp=result
         equation.set(exp)
 
@@ -130,11 +132,29 @@ def root_num():
 def sq_root_num():
     global exp
     global first
-    global but
     first=float(exp)
     result=first**0.5
     exp=result
     equation.set(exp)
+    flag=0
+
+def loge_num():
+    global exp
+    global first
+    first=float(exp)
+    result=math.log(first)
+    exp=result
+    equation.set(exp)
+    flag=0
+
+def log_num():
+    global exp
+    global first
+    global but
+    first=float(exp)
+    exp=""
+    equation.set(exp)
+    but=7
     flag=0
 
 
@@ -243,5 +263,13 @@ rooter.configure(font=("Calibri",17))
 sq_rooter = tkinter.Button(root, text='2√', command=sq_root_num, height=1, width=4) 
 sq_rooter.place(x=130, y=250)
 sq_rooter.configure(font=("Calibri",17))
+
+ln = tkinter.Button(root, text='ln', command=loge_num, height=1, width=4) 
+ln.place(x=190, y=250)
+ln.configure(font=("Calibri",17))
+
+log = tkinter.Button(root, text='log', command=log_num, height=1, width=4) 
+log.place(x=250, y=250)
+log.configure(font=("Calibri",17))
 
 root.mainloop() 
